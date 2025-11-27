@@ -1,20 +1,29 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Training & Stats</title>
   <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6e/Soccer_ball.svg" />
+
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: "Segoe UI", sans-serif;
-      background-color: #111;
+      background: linear-gradient(120deg, #111, #1a1a1a, #111);
+      background-size: 400% 400%;
+      animation: bgShift 12s infinite alternate ease-in-out;
       color: white;
       margin: 0;
       padding: 0;
     }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
     nav {
       background-color: rgba(0, 0, 0, 0.9);
       position: fixed;
@@ -32,69 +41,111 @@
       font-weight: bold;
       transition: 0.3s;
     }
-    nav a:hover {
-      color: #e63946;
-    }
+    nav a:hover { color: #e63946; }
+
     section {
       padding: 120px 50px 50px;
       max-width: 1000px;
       margin: auto;
     }
-    h1, h2 {
-      color: #fff;
-    }
+
+    h1, h2 { color: #fff; }
+
     h1 {
       font-size: 3em;
       text-align: center;
       margin-top: 0.5em;
+      opacity: 0;
+      animation: fadeSlide 1.5s ease forwards;
     }
+
     h2 {
       color: #e63946;
       font-size: 2.2em;
       margin-bottom: 0.3em;
+      opacity: 0;
+      animation: fadeSlide 1.5s ease forwards;
+      animation-delay: 0.5s;
     }
+
+    p.intro-text {
+      text-align: center;
+      font-size: 1.2em;
+      color: #ccc;
+      opacity: 0;
+      animation: fadeSlide 1.5s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     .card {
-      background: #000;
+      background: rgba(0,0,0,0.75);
       padding: 1.2em;
       border-radius: 12px;
       margin-bottom: 1.5em;
-      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: cardFade 1.2s ease forwards;
     }
+
+    .card:nth-of-type(1) { animation-delay: 1s; }
+    .card:nth-of-type(2) { animation-delay: 1.3s; }
+    .card:nth-of-type(3) { animation-delay: 1.6s; }
+
+    @keyframes cardFade {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     .card h3 {
       color: #e63946;
       font-size: 1.6em;
       margin-bottom: 0.3em;
+      animation: glowText 2s infinite alternate;
     }
-    .card p {
-      font-size: 1.1em;
-      margin: 6px 0;
-      color: #ddd;
+
+    @keyframes glowText {
+      0% { text-shadow: 0 0 5px #e63946; }
+      100% { text-shadow: 0 0 15px #e63946; }
     }
   </style>
 </head>
-<body>  <nav>
+
+<body>
+  <nav>
     <a href="https://b2029coadelacruz.github.io/Q2-Project-Proposal/">HOME</a>
     <a href="https://kskdheksnd.github.io/Overview/">OVERVIEW</a>
     <a href="https://kskdheksnd.github.io/Players/">PLAYERS</a>
     <a href="https://kskdheksnd.github.io/Training/">TRAINING & STATS</a>
     <a href="https://kskdheksnd.github.io/Hall-of-Fame/">HALL OF FAME</a>
-  </nav>  <section>
+  </nav>
+
+  <section>
     <h1>Training & Statistics</h1>
-    <p style="text-align:center; font-size:1.2em; color:#ccc;">
-      Learn about football training methods, player development, and the data behind the sport.
-    </p><h2>Training Techniques</h2>
+    <p class="intro-text">Learn about football training methods, player development, and the data behind the sport.</p>
 
-<div class="card">
-  <h3>Ball Control & Dribbling</h3>
-  <p>Players perform cone drills, tight-space dribbling, and ball-touch repetitions to improve close control.</p>
-</div>
+    <h2>Training Techniques</h2>
 
-<div class="card">
-  <h3>Passing & Playmaking</h3>
-  <p>Training includes short and long passing routines, tactical patterns, and teamwork-based drills.</p>
-</div>
+    <div class="card">
+      <h3>Ball Control & Dribbling</h3>
+      <p>Players perform cone drills, tight-space dribbling, and ball-touch repetitions to improve close control.</p>
+    </div>
 
-<div class="card">
-  <h3>Shooting & Finishing</h3>
-  <p>Strikers and midfielders practice accuracy, power shots, volleys, and situational finishing.</p>
-</div>
+    <div class="card">
+      <h3>Passing & Playmaking</h3>
+      <p>Training includes short and long passing routines, tactical patterns, and teamwork-based drills.</p>
+    </div>
+
+    <div class="card">
+      <h3>Shooting & Finishing</h3>
+      <p>Strikers and midfielders practice accuracy, power shots, volleys, and situational finishing.</p>
+    </div>
+
+  </section>
+</body>
+</html>
